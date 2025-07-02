@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ad Platform Chat</title>
+  <link rel="stylesheet" href="chat.css">
+  <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"></script>
+</head>
+
+<body>
+  <div class="app-container">
+    <!-- Sidebar with chat list -->
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h2>My Chats</h2>
+        <div class="user-status">
+          <span class="status-indicator online"></span>
+          <span id="current-user-name">You</span>
+        </div>
+      </div>
+      <div class="chat-list" id="chat-list">
+        <!-- Chat items will be added here dynamically -->
+        <div class="empty-state">No active chats</div>
+      </div>
+    </div>
+
+    <!-- Main chat area -->
+    <div class="chat-container">
+      <div class="empty-state-main" id="empty-state">
+        <div class="empty-state-icon">💬</div>
+        <h3>Select a chat or start a new conversation</h3>
+        <p>Click on a product's "Chat" button to start talking with the owner</p>
+      </div>
+
+      <!-- Chat interface (hidden initially) -->
+      <div class="chat-interface" id="chat-interface" style="display: none;">
+        <div class="chat-header">
+          <div class="chat-header-info">
+            <h3 id="chat-title">Product Name</h3>
+            <div class="user-status">
+              <span class="status-indicator" id="recipient-status"></span>
+              <span id="recipient-name">User</span>
+              <span id="typing-indicator" class="typing-indicator">typing...</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="messages-container" id="messages-container">
+          <!-- Messages will be added here dynamically -->
+        </div>
+
+        <div class="chat-input-container">
+          <textarea id="message-input" placeholder="Type a message..." rows="1"></textarea>
+          <button id="send-button" class="send-button"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Demo product cards (for testing) -->
+  <div class="product-demo">
+    <h2>Available Products</h2>
+    <div class="product-list" id="product-list">
+      <!-- Products will be added here dynamically -->
+    </div>
+  </div>
+
+  <script src="chat.js"></script>
+</body>
+
+</html>
